@@ -1,0 +1,24 @@
+{% extends "news_blog/base.html" %}
+{% block title %} My amazing site {% endblock %}
+
+{% block content %}
+    {% if articles %}
+        {% for article in articles %}
+            <div class="row">
+                <div class="col-sm">
+                    <h3><a href={% url "article" article_id=article.id %}>{{ article.title }}</a></h3>
+                    <p>{{ article.text }}</p>
+
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <div class="row">
+            <div class="col-sm">
+                <h3>Not found </h3>
+                <p>not found</p>
+
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
